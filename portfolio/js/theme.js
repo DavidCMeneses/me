@@ -6,6 +6,10 @@
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
 
+  document.querySelectorAll('a[href$="#about"]').forEach(function (link) {
+    link.setAttribute("href", link.getAttribute("href").replace("#about", ""));
+  });
+
   function applyTheme(theme) {
     document.documentElement.dataset.theme = theme;
     button.querySelector(".sr-only").textContent = theme === "dark" ? "Light mode" : "Dark mode";
