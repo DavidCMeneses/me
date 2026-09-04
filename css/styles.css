@@ -849,6 +849,7 @@ h2 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 0.6rem;
   }
 
   .site-footer .social-links {
@@ -856,6 +857,7 @@ h2 {
     min-width: 0;
     justify-content: space-between;
     flex-wrap: wrap;
+    font-size: 0.6rem;
   }
 
   .navigation {
@@ -869,6 +871,11 @@ h2 {
   .menu-toggle {
     display: block;
     margin-left: 0;
+  }
+
+  .theme-toggle {
+    top: 1rem;
+    transform: none;
   }
 
   .nav-links {
