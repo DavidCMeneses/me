@@ -125,8 +125,16 @@ a:focus-visible {
 .footer-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   min-height: 44px;
+}
+
+.navigation {
+  position: relative;
+  justify-content: center;
+}
+
+.footer-content {
+  justify-content: space-between;
 }
 
 .logo {
@@ -139,6 +147,10 @@ a:focus-visible {
 }
 
 .theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
   display: grid;
   width: 2.25rem;
   height: 2.25rem;
@@ -717,6 +729,13 @@ h2 {
   color: var(--muted);
 }
 
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
 .text-link {
   display: inline-block;
   color: var(--teal);
@@ -831,10 +850,12 @@ h2 {
     gap: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    justify-content: space-between;
   }
 
   .menu-toggle {
     display: block;
+    margin-left: 0;
   }
 
   .nav-links {
