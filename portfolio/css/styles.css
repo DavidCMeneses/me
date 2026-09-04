@@ -5,11 +5,21 @@
   --body-ink: var(--muted);
   --chrome-ink: #ffffff;
   --chrome-shadow: #174eaf;
+  --chrome-edge: #2d6fd0;
   --nav-hover: #fff3a6;
   --button-ink: #17243a;
   --eyebrow-ink: #8d3b0e;
   --tag-ink: var(--teal);
+  --taskbar: #245db2;
+  --taskbar-gradient: linear-gradient(#5b9cf2 0%, #2d6fd0 48%, #1854b8 52%, #2f73d4 100%);
+  --taskbar-start: #3b9b3b;
+  --taskbar-start-gradient: linear-gradient(#67c767 0%, #3b9b3b 48%, #257b2b 52%, #49ad49 100%);
+  --taskbar-start-ink: #ffffff;
+  --taskbar-panel: #0c91e1;
+  --taskbar-panel-gradient: linear-gradient(#49b9f0 0%, #0c91e1 48%, #0875b8 52%, #22a5e8 100%);
+  --taskbar-panel-ink: #17365d;
   --paper: #d9dde3;
+  --desktop-overlay: rgba(244, 244, 244, 0.22);
   --surface: #f4f4f4;
   --blue: #dce6f2;
   --teal: #1d4f91;
@@ -28,11 +38,21 @@
   --body-ink: var(--muted);
   --chrome-ink: #ffffff;
   --chrome-shadow: #174eaf;
+  --chrome-edge: #5b9cf2;
   --nav-hover: #fff3a6;
   --button-ink: #17243a;
   --eyebrow-ink: #ffd08a;
   --tag-ink: #f2f5fb;
+  --taskbar: #173f7b;
+  --taskbar-gradient: linear-gradient(#5b9cf2 0%, #2d6fd0 48%, #1854b8 52%, #2f73d4 100%);
+  --taskbar-start: #2d7d35;
+  --taskbar-start-gradient: linear-gradient(#58b957 0%, #2d7d35 48%, #205c27 52%, #409b47 100%);
+  --taskbar-start-ink: #ffffff;
+  --taskbar-panel: #0c91e1;
+  --taskbar-panel-gradient: linear-gradient(#49b9f0 0%, #0c91e1 48%, #0875b8 52%, #22a5e8 100%);
+  --taskbar-panel-ink: #f2f5fb;
   --paper: #202832;
+  --desktop-overlay: rgba(16, 25, 36, 0.62);
   --surface: #303a46;
   --blue: #466b9f;
   --teal: #8fc1ff;
@@ -59,7 +79,10 @@ body {
   padding-top: 46px;
   color: var(--ink);
   background: var(--paper);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 42%, rgba(0, 0, 0, 0.06));
+  background-image: linear-gradient(var(--desktop-overlay), var(--desktop-overlay)), url("../images/windows_background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   font-family: Tahoma, "Trebuchet MS", sans-serif;
   line-height: 1.6;
 }
@@ -224,6 +247,7 @@ a:focus-visible {
   align-items: center;
   min-height: 500px;
   margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
   padding: 5rem 3.5rem 3.5rem;
   background: var(--surface);
 }
@@ -496,6 +520,40 @@ h2 {
   letter-spacing: 0.1em;
 }
 
+.section-note .text-link {
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 0.75rem 0.45rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 2px solid var(--chrome-edge);
+  border-bottom: 2px solid var(--chrome-edge);
+  font-size: 0.8rem;
+  letter-spacing: 0;
+}
+
+.section-note .text-link::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1.1rem;
+  padding-left: 0.45rem;
+  color: var(--chrome-ink);
+  background: linear-gradient(#4e94ed, #1254c1);
+  content: "Projects";
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.1rem;
+  text-align: left;
+  text-shadow: 1px 1px var(--chrome-shadow);
+}
+
+.section-note .text-link:hover {
+  color: var(--highlight-ink);
+  background: var(--highlight);
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -622,8 +680,7 @@ h2 {
 .post-card,
 .contact-panel,
 .article {
-  border: 0;
-  outline: 1px solid var(--line);
+  border: 2px solid var(--chrome-edge);
   box-shadow: var(--shadow);
 }
 
@@ -669,19 +726,40 @@ h2 {
 }
 
 .site-footer {
-  background: var(--surface);
   margin-top: 5rem;
-  border-top: 2px solid var(--line);
+  background: var(--taskbar-gradient);
 }
 
 .site-footer p {
   margin: 0;
-  color: var(--muted);
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  color: var(--taskbar-start-ink);
+  background: var(--taskbar-start-gradient);
   font-size: 0.85rem;
 }
 
+.site-footer .footer-content {
+  width: 100%;
+  max-width: none;
+  align-items: stretch;
+  padding: 0;
+  gap: 1rem;
+}
+
+.site-footer .social-links {
+  min-height: 44px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.45rem 1rem;
+  color: var(--chrome-ink);
+  background: var(--taskbar-panel-gradient);
+}
+
 .site-footer .social-links a {
-  color: var(--muted);
+  color: var(--chrome-ink);
   text-shadow: none;
 }
 
@@ -701,6 +779,7 @@ h2 {
   .hero {
     gap: 3rem;
     min-height: auto;
+    margin-bottom: 1.5rem;
     padding: 4.5rem 1.5rem 2.5rem;
   }
 
@@ -736,6 +815,15 @@ h2 {
     gap: 1rem;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  .site-footer .footer-content {
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-footer .social-links {
+    justify-content: space-between;
   }
 
   .navigation {
