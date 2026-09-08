@@ -274,7 +274,7 @@ a:focus-visible {
   padding: 0 0.65rem;
   color: var(--chrome-ink);
   background: linear-gradient(#4e94ed, #1254c1);
-  content: "Alex Morgan - Personal Portfolio";
+  content: "David Casallas - Personal Portfolio";
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.65rem;
@@ -311,7 +311,7 @@ a:focus-visible {
 }
 
 .page-hero::before {
-  content: "Alex Morgan - Portfolio";
+  content: "David Casallas - Portfolio";
 }
 
 .page-hero h1,
