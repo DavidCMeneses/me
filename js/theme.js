@@ -23,6 +23,13 @@
     applyTheme(nextTheme);
   });
 
+  document.querySelectorAll('a[href="#top"]').forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, left: 0 });
+    });
+  });
+
   document.querySelectorAll(".menu-toggle").forEach(function (menuButton) {
     const target = document.getElementById(menuButton.getAttribute("aria-controls"));
     if (!target) return;
